@@ -1,0 +1,13 @@
+[package]
+name = "arcow"
+version = "1.0.0"
+authors = ["Solra Bizna <solra@bizna.name>"]
+edition = "2021"
+description = "Atomically Reference-counted Copy-On-Write shared pointer."
+readme = "README.md"
+homepage = "https://github.com/SolraBizna/arcow"
+repository = "https://github.com/SolraBizna/arcow"
+license = "MIT OR Apache-2.0"
+keywords = ["arcow", "cow"]
+
+[dependencies]
