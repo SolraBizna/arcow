@@ -298,3 +298,7 @@ mod tests {
         assert_eq!(*count.lock().unwrap(), 0);
     }
 }
+
+unsafe impl<T: Clone + Sync + Send> Send for Arcow<T> {}
+unsafe impl<T: Clone + Sync + Send> Sync for Arcow<T> {}
+
