@@ -1,6 +1,6 @@
 [package]
 name = "arcow"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Solra Bizna <solra@bizna.name>"]
 edition = "2021"
 description = "Atomically Reference-counted Copy-On-Write shared pointer."

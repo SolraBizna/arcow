@@ -3,6 +3,16 @@
 This crate provides a thread-safe, reference counted pointer that uses
 copy-on-write semantics to allow mutability.
 
+I created it because I didn't know about [`Arc::make_mut`][6], which has
+been available in standard Rust since 2015. I thought about deprecating it
+in favor of the standard solution, but there are a couple slight advantages
+that just barely justify it:
+
+- `Arcow` is slightly more ergonomic than `Arc::make_mut`. (Phrased as a
+  disadvantage, it's easier to accidentally mutate through an `Arcow`.)
+- `Arcow` does not support weak references, which makes it *slightly* more
+  efficient at runtime.
+
 ## How
 
 Make an `Arcow<T>`. This acts like a cheaply-clonable `T` that can
@@ -89,7 +99,7 @@ afterwards. See:)
 
 ## Legalese
 
-Arcow is copyright 2022, Solra Bizna, and licensed under either of:
+Arcow is copyright 2022, 2023 Solra Bizna, and licensed under either of:
 
  * Apache License, Version 2.0
    ([LICENSE-APACHE](LICENSE-APACHE) or
@@ -109,3 +119,4 @@ additional terms or conditions.
 [3]: https://doc.rust-lang.org/std/sync/struct.Arc.html
 [4]: https://doc.rust-lang.org/std/sync/struct.Mutex.html
 [5]: https://doc.rust-lang.org/std/ops/trait.DerefMut.html
+[6]: https://doc.rust-lang.org/std/sync/struct.Arc.html#method.make_mut
